@@ -7,8 +7,7 @@ import org.contest16.*;
 
 public class Attaque {
 	
-	static Vector getAttackableEnemies(PlayerCell ourCell, PlayerCellVector cells, float comfortZone, GameParameters p) {
-		Vector attackable = new Vector();
+	static void getAttackableEnemies(Actions a, PlayerCell ourCell, PlayerCellVector cells, float comfortZone, GameParameters p) {
 		for (int i = 0; i < cells.size(); ++i) {
             PlayerCell cell = cells.get(i);
             float distance = Distance.distanceFromCell(ourCell, cell, p);
@@ -17,13 +16,10 @@ public class Attaque {
             	// Case C
             	if (cell.getMass() < ourCell.getMass())
             	{
-                	infos.add(cell.getMass());
-                	infos.add(distance);
+            		a.add_move_action(ourCell.getPcell_id(), cell.getPosition().getX(), cell.getPosition().getY());
             	}
-            	attackable.add(infos);
             }
         }
-		return attackable;
 	}
 	
 	static void getVirusableEnemies(Actions a, PlayerCell ourCell, PlayerCellVector cells, float comfortZone, GameParameters p) {
