@@ -19,10 +19,10 @@ public class Distance {
 	}
 	
 	
-	public static float distance(PlayerCell cell1, PlayerCell cell2) {
+	public static float distance(Position pos1, Position pos2) {
 		return (float) Math.sqrt(
-	            Math.pow(cell1.getPosition().getX() - cell2.getPosition().getX(), 2) +
-	            Math.pow(cell1.getPosition().getY() - cell2.getPosition().getY(), 2) );
+	            Math.pow(pos1.getX() - pos2.getX(), 2) +
+	            Math.pow(pos1.getY() - pos2.getY(), 2) );
 	}
 	
 	public static float distanceFromCell(PlayerCell ourCell, PlayerCell otherCell, GameParameters p) {
